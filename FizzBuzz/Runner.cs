@@ -5,11 +5,12 @@ namespace FizzBuzz
 {
     public class Runner
     {
-        private readonly Dictionary<int, string> replacements = new Dictionary<int, string>
+        private readonly IDictionary<int, string> replacements;
+
+        public Runner(IRunnerSettings runnerSettings)
         {
-            {3, "Fizz"},
-            {5, "Buzz"},
-        };
+            replacements = runnerSettings.Replacements;
+        }
 
         public IEnumerable<string> Run(int start, int end)
         {

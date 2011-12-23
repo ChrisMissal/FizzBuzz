@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using FizzBuzz;
 using NUnit.Framework;
 
@@ -43,7 +42,7 @@ namespace Tests
 
         private Runner GetRunner()
         {
-            return new Runner();
+            return new Runner(new DefaultRunnerSettings());
         }
     }
 }
