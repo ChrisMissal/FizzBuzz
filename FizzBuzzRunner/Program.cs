@@ -1,7 +1,7 @@
 ﻿using System;
 using FizzBuzz;
 
-namespace ConsoleApplication2_
+namespace FizzBuzzRunner
 {
     class Program
     {

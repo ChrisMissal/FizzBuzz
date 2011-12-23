@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication2`", "ConsoleApplication2`.csproj", "{3113C15F-1B6F-43D6-A074-799ACAE02648}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FizzBuzzRunner", "FizzBuzzRunner\FizzBuzzRunner.csproj", "{3113C15F-1B6F-43D6-A074-799ACAE02648}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FizzBuzz", "..\FizzBuzz\FizzBuzz.csproj", "{F8937BC4-BBCB-4234-8000-E5391703CC83}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FizzBuzz", "FizzBuzz\FizzBuzz.csproj", "{F8937BC4-BBCB-4234-8000-E5391703CC83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "..\FizzBuzzTests\Tests\Tests.csproj", "{2538DE89-2072-4241-93C5-AA2F317FF9E0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "FizzBuzzTests\Tests\Tests.csproj", "{2538DE89-2072-4241-93C5-AA2F317FF9E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
