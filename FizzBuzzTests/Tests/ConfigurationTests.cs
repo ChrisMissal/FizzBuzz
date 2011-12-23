@@ -13,7 +13,7 @@ namespace Tests
             var settings = GetAppConfigRunnerSettings();
             var result = settings.Replacements;
 
-            Assert.That(result.Count, Is.EqualTo(2));
+            Assert.That(result.Count, Is.EqualTo(3));
         }
 
         [Test, Explicit("Run this when there are non Int32 values for divisors")]
