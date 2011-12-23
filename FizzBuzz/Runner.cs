@@ -1,10 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace FizzBuzz
 {
     public class Runner
     {
+        private readonly Dictionary<int, string> replacements = new Dictionary<int, string>
+        {
+            {3, "Fizz"},
+            {5, "Buzz"},
+        };
+
         public IEnumerable<string> Run(int start, int end)
         {
             for (var i = start; i <= end; i++)
@@ -13,14 +19,15 @@ namespace FizzBuzz
             }
         }
 
-        public string GetLine(int i)
+        public string GetLine(int value)
         {
-            var line = "";
-            if (i % 3 == 0)
-                line += "Fizz";
-            if (i % 5 == 0)
-                line += "Buzz";
-            return line == "" ? i.ToString() : line;
+            var line = GetReplacements(value).Aggregate("", (current, replacement) => current + replacement);
+            return line == "" ? value.ToString() : line;
+        }
+
+        private IEnumerable<string> GetReplacements(int value)
+        {
+            return replacements.Where(entry => value % entry.Key == 0).Select(entry => entry.Value);
         }
     }
 }
