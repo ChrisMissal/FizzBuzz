@@ -49,13 +49,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigurationTests.cs" />
     <Compile Include="RunnerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\FizzBuzzRunner\App.config">
+      <Link>App.config</Link>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\FizzBuzzRunner\FizzBuzzRunner.csproj">
+      <Project>{3113C15F-1B6F-43D6-A074-799ACAE02648}</Project>
+      <Name>FizzBuzzRunner</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\FizzBuzz\FizzBuzz.csproj">
       <Project>{F8937BC4-BBCB-4234-8000-E5391703CC83}</Project>
       <Name>FizzBuzz</Name>

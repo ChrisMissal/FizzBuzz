@@ -9,7 +9,7 @@ namespace FizzBuzz
 
         public Runner(IRunnerSettings runnerSettings)
         {
-            replacements = runnerSettings.Replacements;
+            replacements = runnerSettings.Replacements ?? new Dictionary<int, string>();
         }
 
         public IEnumerable<string> Run(int start, int end)

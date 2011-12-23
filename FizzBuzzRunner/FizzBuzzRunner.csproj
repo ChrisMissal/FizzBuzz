@@ -35,6 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,14 +44,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\AppConfigRunnerSettings.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Configuration\ReplacementElement.cs" />
+    <Compile Include="Configuration\ReplacementsCollection.cs" />
+    <Compile Include="Configuration\ReplacementsConfigurationSection.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FizzBuzz\FizzBuzz.csproj">
       <Project>{F8937BC4-BBCB-4234-8000-E5391703CC83}</Project>
       <Name>FizzBuzz</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

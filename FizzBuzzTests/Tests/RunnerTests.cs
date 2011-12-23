@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using FizzBuzz;
 using NUnit.Framework;
 
@@ -40,9 +42,32 @@ namespace Tests
             Assert.IsEmpty(result);
         }
 
+        [Test]
+        public void A_Runner_with_no_ReplacementSettings_should_return_values_as_strings()
+        {
+            var runner = new Runner(new TestRunnerSetting(null));
+            var result = runner.Run(2, 4);
+            CollectionAssert.AreEqual(new[] {"2", "3", "4"}, result);
+        }
+
         private Runner GetRunner()
         {
             return new Runner(new DefaultRunnerSettings());
+        }
+
+        class TestRunnerSetting : IRunnerSettings
+        {
+            private readonly IDictionary<int, string> replacements;
+
+            public TestRunnerSetting(IDictionary<int, string> replacements)
+            {
+                this.replacements = replacements;
+            }
+
+            public IDictionary<int, string> Replacements
+            {
+                get { return replacements; }
+            }
         }
     }
 }
