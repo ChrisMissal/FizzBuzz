@@ -5,11 +5,11 @@ namespace FizzBuzz
 {
     public class Runner
     {
-        private readonly IDictionary<int, string> replacements;
+        private readonly IDictionary<int, Replacement> replacements;
 
         public Runner(IRunnerSettings runnerSettings)
         {
-            replacements = runnerSettings.Replacements ?? new Dictionary<int, string>();
+            replacements = runnerSettings.Replacements ?? new Dictionary<int, Replacement>();
         }
 
         public IEnumerable<string> Run(int start, int end)
@@ -28,7 +28,7 @@ namespace FizzBuzz
 
         private IEnumerable<string> GetReplacements(int value)
         {
-            return replacements.Where(entry => value % entry.Key == 0).Select(entry => entry.Value);
+            return replacements.Where(entry => value % entry.Key == 0).Select(entry => entry.Value.Value);
         }
     }
 }

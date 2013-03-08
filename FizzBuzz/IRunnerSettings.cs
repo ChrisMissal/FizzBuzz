@@ -4,6 +4,6 @@ namespace FizzBuzz
 {
     public interface IRunnerSettings
     {
-        IDictionary<int, string> Replacements { get; }
+        IDictionary<int, Replacement> Replacements { get; }
     }
 }

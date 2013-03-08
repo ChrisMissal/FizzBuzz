@@ -57,14 +57,14 @@ namespace Tests
 
         class TestRunnerSetting : IRunnerSettings
         {
-            private readonly IDictionary<int, string> replacements;
+            private readonly IDictionary<int, Replacement> replacements;
 
-            public TestRunnerSetting(IDictionary<int, string> replacements)
+            public TestRunnerSetting(IDictionary<int, Replacement> replacements)
             {
                 this.replacements = replacements;
             }
 
-            public IDictionary<int, string> Replacements
+            public IDictionary<int, Replacement> Replacements
             {
                 get { return replacements; }
             }

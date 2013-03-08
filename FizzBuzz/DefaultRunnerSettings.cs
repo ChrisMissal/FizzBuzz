@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace FizzBuzz
 {
@@ -10,9 +11,14 @@ namespace FizzBuzz
             {5, "Buzz"},
         };
 
-        public IDictionary<int, string> Replacements
+        public IDictionary<int, Replacement> Replacements
         {
-            get { return replacements; }
+            get
+            {
+                return replacements
+                    .Select(x => new Replacement { Key = x.Key, Value = x.Value })
+                    .ToDictionary(x => x.Key);
+            }
         }
     }
 }

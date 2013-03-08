@@ -13,7 +13,7 @@ namespace FizzBuzzRunner
         {
             foreach (var line in runner.Run(1, 100))
             {
-                Console.WriteLine(line);
+                Console.Write(line + "  ");
             }
         }
     }

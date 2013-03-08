@@ -1,28 +1,25 @@
-using System;
 using System.Collections.Generic;
-using System.Configuration;
+using System.Linq;
 using FizzBuzz;
 
 namespace FizzBuzzRunner.Configuration
 {
     public class AppConfigRunnerSettings : IRunnerSettings
     {
-        private readonly IDictionary<int, string> replacements = new Dictionary<int, string>();
+        private readonly IDictionary<int, Replacement> replacements = new Dictionary<int, Replacement>();
 
         public AppConfigRunnerSettings()
         {
-            var section = (ReplacementsConfigurationSection)ConfigurationManager.GetSection("Replacements");
-            foreach (ReplacementElement item in section.ReplacementItems)
-            {
-                int divisor;
-                if (!Int32.TryParse(item.Divisor, out divisor))
-                    throw new ApplicationException(string.Format("Invalid setting. The divisor '{0}' is not a number.", item.Divisor));
+            var configuration = new Formo.Configuration("fizzBuzzPairs");
 
-                replacements.Add(divisor, item.ReplacementString);
-            }
+            var pairs = configuration.BindPairs<Replacement, int, string>(x => x.Key, x => x.Value);
+
+            replacements = pairs
+                    .Select(x => new Replacement { Key = x.Key, Value = x.Value })
+                    .ToDictionary(x => x.Key);
         }
 
-        public IDictionary<int, string> Replacements
+        public IDictionary<int, Replacement> Replacements
         {
             get { return replacements; }
         }
